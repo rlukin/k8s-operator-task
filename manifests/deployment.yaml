@@ -24,7 +24,7 @@ spec:
         - name: CLUSTER_NAME
           value: "local-minikube"
         - name: REPORT_ENDPOINT
-          value: "http://localhost:8080/report"
+          value: "http://report-receiver.default.svc.cluster.local:8080/report"
         - name: REPORT_INTERVAL
           value: "45"
         resources:

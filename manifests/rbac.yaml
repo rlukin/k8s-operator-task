@@ -18,6 +18,8 @@ rules:
       - get
       - list
       - watch
+      - patch
+      - update
   # Permissions to read TLS Secrets
   - apiGroups:
       - ""
@@ -26,6 +28,22 @@ rules:
     verbs:
       - get
       - list
+  # Permissions to create events (for Kopf logging)
+  - apiGroups:
+      - ""
+    resources:
+      - events
+    verbs:
+      - create
+      - patch
+  - apiGroups:
+      - apiextensions.k8s.io
+    resources:
+      - customresourcedefinitions
+    verbs:
+      - get
+      - list
+      - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
